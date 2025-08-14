@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,50,0.8),rgba(0,0,50,0.8)), url(dvsfd.jpeg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.form-box{
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: transparent;
+    border: 2px solid rgb(215, 23, 23);
+    border-radius: 3rem;
+    color: black;
+    padding: 50px 60px 70px;
+    text-align: center;
+}
+.form-box h1{
+    font-size: 30px;
+    margin-bottom: 30px;
+    margin-top: -2rem;
+    color: white;
+    position: relative;
+}
+.form-box h1::after{
+    content: '';
+    width: 25%;
+    height: 4px;
+    border-radius: 3px;
+    background: black;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translate(-50%);
+}
+.input-field{
+    background: white;
+    margin: 10px 0;
+    border-radius: 1rem;
+    border: 0.1rem;
+    display: flex;
+    align-items: center;
+    max-height: 65px;
+    transition: max-height 0.5s;
+    overflow: hidden;
+}
+input{
+    width: 100%;
+    background: rgb(240, 224, 203);
+    color: black;
+    font-size: 1rem;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+}
+label#name{
+    background-color: white;
+    margin: 0 11px 0 2px;
+}
+label#email{
+    background-color: white;
+    margin: 0 14px 0 2px;
+}
+label#number{
+    background-color: white;
+    margin: 0 9px 0 2px;
+}
+label#className{
+    background-color: white;
+    margin: 0 14px 0 2px;
+}
+select{
+    width: 100%;
+    background: rgb(240, 224, 203);
+    color: black;
+    font-size: 1rem;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+}
+form p{
+    text-align: bottom;
+    color: white;
+    font-size: 13px;
+}
+form p a{
+    text-decoration: none;
+    color: rgb(43, 255, 0);
+}
+
+.btn-field{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.btn-field button{
+    flex-basis: 35%;
+    background: black;
+    color: white;
+    height: 50px;
+    margin-top: 1rem;
+    border-radius: 2rem;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+.btn-field button:hover{
+    background: white;
+    color: black;
+}
+.input-group{
+    height: auto;
+}
+
+
+
+#classField{
+    background: white;
+    margin: 10px 0;
+    border-radius: 1rem;
+    border: 0.1rem;
+    display: flex;
+    align-items: center;
+    max-height: 50px;
+    transition: max-height 0.5s;
+    overflow: hidden;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+        <h1>Add Student</h1>
+        <form action="/add-student" method="post">
+            <div class="input-group">
+                <div class="input-field">
+                    <label for="name" id="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-field">
+                    <label for="email" id="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="input-field">
+                    <label for="contact" id="number">Phone</label>
+                    <input type="tel" id="contact" name="contact" maxlength="10" minlength="10" required>
+                </div>
+                <div id="classField">
+                    <label for="className" id="className">Class</label>
+                    <select id="className" name="className" required>
+                        <option value="">Select class</option>
+                        <option value="tycs">TYCS</option>
+                        <option value="fycs">FYCS</option>
+                        <option value="sycs">SYCS</option>
+                        <option value="tyit">TYIT</option>
+                        <option value="syit">SYIT</option>
+                        <option value="fyit">FYIT</option>
+                        </select>
+                </div>
+            </div>
+            <div class="btn-field">
+                <button type="submit">Add Student</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

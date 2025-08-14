@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="teacher.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-person-chalkboard" style="font-size: 35px; color: red;"></i>
+            <span class="admin">TEACHER</span>
+        </div>
+        <div class="nav-buttons">
+            <ul>
+                <li><a href="#dashboard-content" id="dashboard-btn" class="active">Dashboard</a></li>
+                <li><a href="#" id="exam-btn">Exam</a></li>
+                <li><a href="#" id="Live-monitor-btn">Monitor</a></li>
+                <li><a href="#" id="Moderate-btn">Moderate</a></li>
+                <li><a href="#" id="Result-btn">Result</a></li>
+                <li><a href="#" id="Setting-btn">Setting</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- main content-->
+    <div class="container">
+        <main class="main-content">
+            <div id="dashboard-content" class="tab-content">
+                <section id="dashboard">
+                    <h1>Dashboard</h1>
+                    <div class="main-info">
+                        <div class="total-exam">
+                            <h3>EXAMS</h3>
+                            <p>Total exam: <span>0</span></p>
+                            <p>Upcoming Exam: <span>0</span></p>
+                            <a href="#"><button>View All Exams</button></a>
+                        </div>
+                        <div class="total-student">
+                            <h3>Student</h3>
+                            <p>Total Student: <span>0</span></p>
+                            <p>Department: <span>2</span></p>
+                            <a href="#"><button>View Student</button></a>
+                        </div>
+                        
+                    </div>
+                    <div class="notice-board"></div>
+                        <div id="notice-board">
+                            <h1>Notice Board</h1>
+                            <div id="notices-container">
+                                <!-- Notices will be appended here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    </div>
+                    
+                </section>
+            </div>
+            <div id="exam-content" class="tab-content">
+                <a href="#" id="add-exam"><button>Add Exam</button></a>
+                <a href="mcq.html" id="Internal" style="display: none;"><button>Internal Exam</button></a>
+                <a href="theory.html" id="External" style="display: none;"><button>External Exam</button></a>
+            </div>
+
+
+            <!--- live content or video monitoring--->
+            <div id="live-content" class="tab-content">
+                <button id="show-videos-btn">Show Uploaded Videos</button>
+                <table id="videos-table">
+                    <thead>
+                        <tr>
+                            <th>Data Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="videos-tbody"></tbody>
+                </table>
+            </div>
+
+
+            <div id="moderate-content" class="tab-content">
+                <button id="internalButton" onclick="toggleTable('pdfTable1', 'http://localhost:4000/admin/pdfs', 'pdfTable2')">Internal-answer</button>
+                <button id="externalButton" onclick="toggleTable('pdfTable2', 'http://localhost:4000/admin/pdfs/second-directory', 'pdfTable1')">External-answer</button>
+                <a href="marks.html" style="text-decoration: none; color: white;"><button>Add External Marks</button></a>
+                <a href="intmarks.html" style="text-decoration: none; color: white;"><button>Add Internal Theory Marks</button></a>
+                <table id="pdfTable1">
+                    <thead>
+                        <tr>
+                            <th>PDF File Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="pdfTableBody1">
+                    <!-- PDF files from Directory 1 will be dynamically populated here -->
+                     
+                    </tbody>
+                    </table>
+
+                    <!-- Second Table for Directory 2 PDFs -->
+                <table id="pdfTable2">
+                    <thead>
+                        <tr>
+                            <th>PDF File Name</th>
+                            <th>Actions</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody id="pdfTableBody2">
+                    <!-- PDF files from Directory 2 will be dynamically populated here -->
+                    </tbody>
+                </table>
+
+                <!-- Modal for viewing PDF details -->
+                <div id="pdfModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2 id="pdfFileName"></h2>
+                        <p>Click the button below to download the PDF.</p>
+                        <button id="downloadButton">Download PDF</button>
+                    </div>
+                </div>
+            </div>
+
+            <!--- result management--->
+            <div id="result-content" class="tab-content"></div>
+
+            <!--- setings such as logout --->
+            <div id="setting-content" class="tab-content">
+                <h3>Profile</h3>
+                <div class="containers">
+                    <div class="profile-box">
+                        <div class="profile-image">
+                            <img src="OIP.jpeg" alt="Profile Picture" id="profilePic">
+                            <!-- Add an edit icon -->
+                            <span class="edit-icon" id="editIcon">&#9998;</span> <!-- You can replace this with an icon from FontAwesome -->
+                        </div>
+                        <h1>Welcome, <span id="userId"></span></h1>
+                        <p>Your Email: <span id="userEmail"></span></p>
+                        <p>Your Number: <span id="userNumber"></span></p>
+                        
+                        <!-- Hidden file input for uploading new photo -->
+                        <input type="file" id="uploadPhoto" accept="image/*" style="display: none;">
+                        
+                        <div class="btn-field">
+                            <button id="logoutBtn">Logout</button>
+                        </div>
+                    </div>
+                </div>          
+            </div>
+        </main>
+    </div>
+    <script src="teacher.js"></script>
+    <script>
+        const editIcon = document.getElementById('editIcon');
+        const uploadPhoto = document.getElementById('uploadPhoto');
+        const profilePic = document.getElementById('profilePic');
+        
+        // When the edit icon is clicked, trigger the file input
+        editIcon.addEventListener('click', () => {
+            uploadPhoto.click();
+        });
+        
+        // When a new photo is uploaded, preview it
+        uploadPhoto.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    profilePic.src = e.target.result; // Update the profile image with the new one
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+      
+      
+        // get data from from mysql via api and show data in profile 
+        // Fetch user data from session
+        document.addEventListener('DOMContentLoaded', function () {
+                  fetch('/getUserData')
+                      .then(response => {
+                          if (!response.ok) {
+                              // If not authenticated, redirect to login
+                              window.location.href = '/login.html';
+                          }
+                          return response.json();
+                      })
+                      .then(user => {
+                          if (user) {
+                              document.getElementById('userId').textContent = user.id;
+                              document.getElementById('userEmail').textContent = user.email;
+                              document.getElementById('userNumber').textContent = user.number;
+                          }
+                      })
+                      .catch(error => console.error('Error fetching user data:', error));
+              });
+      
+              // Handle logout
+              document.getElementById('logoutBtn').addEventListener('click', function () {
+                  fetch('/logout', { method: 'POST' })
+                      .then(() => {
+                          // Redirect to login page after logout
+                          window.location.href = '/login.html';
+                      })
+                      .catch(error => console.error('Logout error:', error));
+              });
+
+              
+            // Function to fetch total students and update the count
+            function fetchTotalStudents() {
+                fetch('http://localhost:4000/api/students/count') // Adjust the URL based on your setup
+                    .then(response => response.json())
+                    .then(data => {
+                        const totalStudentsSpan = document.querySelector('.total-student span');
+                    totalStudentsSpan.textContent = data.total; // Update the span with the fetched count
+                })
+                .catch(error => console.error('Error fetching total students:', error));
+            }
+
+            // Call the function on page load
+            document.addEventListener('DOMContentLoaded', fetchTotalStudents);
+            </script>
+</body>
+</html>

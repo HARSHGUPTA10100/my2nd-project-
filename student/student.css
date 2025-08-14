@@ -1,0 +1,968 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .admin {
+    font-size: 1.5rem;
+    color: red;
+  }
+  
+  nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  background-color: #0080ff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  margin-left: auto;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+nav ul li a.active{
+  background-color: #04f6c9;
+  color: red;
+}
+
+nav ul li a:hover {
+  background-color: #04f6c9;
+  color: red;
+}
+
+.container{
+  height: 100%;
+  width: 100%;
+  }
+  #dashboard{
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  }
+  #dashboard h1{
+  margin-top: 20px;
+  margin-bottom: -5px;
+  text-align: center;
+  color: red;
+  align-items: center;
+  justify-content: center;
+  }
+  .main-info{
+  width: 70%;
+  height: 270px;
+  margin-left: 380px;
+  }
+  .total-exam {
+  width: 280px;
+  height: 250px;
+  display: inline-block;
+  position: absolute;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  line-height: 160px;
+  }
+  .total-exam h3{
+  text-align: center;
+  justify-content: center;
+  margin-top: -75px;
+  color: black;
+  }
+  .total-exam p{
+  text-align: center;
+  justify-content: center;
+  color: black;
+  margin-top: -7rem;
+  }
+  .total-exam a{
+  text-decoration: none;
+  display: flex;
+  margin-left: 88px;
+  margin-top: -3rem;
+  }
+  .total-exam a button{
+  display: fixed;
+  height: 30px;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  }
+  .total-exam a button:hover{
+  color: red;
+  background-color: #04f6c9;
+  }
+  
+  .total-teacher {
+  width: 280px;
+  height: 250px;
+  display: inline-block;
+  position: absolute;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  margin-left: 385px;
+  text-align: center;
+  line-height: 160px;
+  }
+  .total-teacher h3{
+  text-align: center;
+  justify-content: center;
+  margin-top: -75px;
+  color: black;
+  }
+  .total-teacher p{
+  text-align: center;
+  justify-content: center;
+  color: black;
+  margin-top: -7rem;
+  }
+  .total-teacher a{
+  text-decoration: none;
+  display: flex;
+  margin-left: 85px;
+  margin-top: -3rem;
+  }
+  .total-teacher a button{
+  display: fixed;
+  height: 30px;
+  border-radius: 8px;
+  background-color: white;
+  color: black;
+  }
+  .total-teacher a button:hover{
+  color: red;
+  background-color: #04f6c9;
+  }
+  
+  
+  
+  #notice-board {
+    position: relative; /* Required for the pseudo-element positioning */
+    background-color: lightblue;
+    border-radius: 8px;
+    margin-top: 65px;
+    margin-left: 20px;
+    width: 94%;
+    min-height: 100px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#notice-board::before {
+    content: "";
+    position: absolute;
+    top: -4px; /* Adjusted for border thickness */
+    left: -4px; /* Adjusted for border thickness */
+    right: -4px; /* Adjusted for border thickness */
+    bottom: -4px; /* Adjusted for border thickness */
+    background: linear-gradient(45deg, #ff0066, #ffcc00, #00ccff, #ff3399);
+    background-size: 400% 400%;
+    border-radius: 8px; /* Match with the border-radius of #notice-board */
+    z-index: -1; /* Behind the notice board */
+    animation: gradient-border 5s ease infinite;
+}
+
+@keyframes gradient-border {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+  
+  #notice-board h1 {
+    text-align: center;
+    color: black;
+    margin-top: -10px;
+  }
+  
+  .notice {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+  }
+  
+  .notice:last-child {
+    border-bottom: none;
+  }
+  
+  .notice h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .notice p {
+    color: #555;
+  }
+
+  #setting-content h3{
+    color: black;
+    text-align: center;
+    background-color: transparent;
+  }
+
+/* profile css........................*/
+.containers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: transparent;
+    padding-top: -50px;
+    margin-top: -140px;
+}
+
+.profile-box {
+  position: relative; /* Required for the pseudo-element positioning */
+  background-color: lightblue;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 300px;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center elements horizontally */
+  justify-content: center; /* Center elements vertically */
+}
+
+.profile-box::before {
+  content: "";
+  position: absolute;
+  top: -4px; /* Adjusted for border thickness */
+  left: -4px; /* Adjusted for border thickness */
+  right: -4px; /* Adjusted for border thickness */
+  bottom: -4px; /* Adjusted for border thickness */
+  background: linear-gradient(45deg, 
+    #ff0066, 
+    #ffcc00, 
+    #00ccff, 
+    #ff3399, 
+    #ff6600, 
+    #66ff00, 
+    #00ffcc, 
+    #0066ff, 
+    #9900ff, 
+    #ff00ff, 
+    #ff9900, 
+    #ff6600, 
+    #00ccff, 
+    #cc00ff, 
+    #ff007f, 
+    #ff7f00, 
+    #7fff00, 
+    #00ff7f, 
+    #007fff, 
+    #7f00ff, 
+    #ff00cc, 
+    #ffcc00, 
+    #ccff00, 
+    #00cc99, 
+    #3399ff, 
+    #ff9933, 
+    #ffcc66, 
+    #6699ff, 
+    #cc99ff);
+
+background-size: 400% 400%;
+  border-radius: 8px; /* Match with the border-radius of .profile-box */
+  z-index: -1; /* Behind the profile box */
+  animation: gradient-border 5s ease infinite;
+}
+
+@keyframes gradient-border {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 0% 50%;
+  }
+}
+
+
+  .profile-image {
+      position: relative;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block; /* Ensures the image behaves as a block element */
+    position: relative; /* Allows the use of z-index */
+    z-index: 1; /* Places the image above the pseudo-element */
+}
+
+.profile-image::before {
+    content: "";
+    position: absolute;
+    top: -5px; /* Adjust for border thickness */
+    left: -5px; /* Adjust for border thickness */
+    right: -5px; /* Adjust for border thickness */
+    bottom: -5px; /* Adjust for border thickness */
+    background: linear-gradient(45deg, 
+    #ff0066, 
+    #ffcc00, 
+    #00ccff, 
+    #ff3399, 
+    #ff6600, 
+    #66ff00, 
+    #00ffcc, 
+    #0066ff, 
+    #9900ff, 
+    #ff00ff, 
+    #ff9900, 
+    #ff6600, 
+    #00ccff, 
+    #cc00ff, 
+    #ff007f, 
+    #ff7f00, 
+    #7fff00, 
+    #00ff7f, 
+    #007fff, 
+    #7f00ff, 
+    #ff00cc, 
+    #ffcc00, 
+    #ccff00, 
+    #00cc99, 
+    #3399ff, 
+    #ff9933, 
+    #ffcc66, 
+    #6699ff, 
+    #cc99ff);
+
+    background-size: 400% 400%;
+    border-radius: 50%; /* Match the image's border-radius */
+    z-index: 0; /* Place it behind the image */
+    animation: gradient-border 5s ease infinite;
+}
+
+@keyframes gradient-border {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+  
+  .edit-icon {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 5px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none; /* Initially hidden */
+  }
+  
+  .profile-image:hover .edit-icon {
+      display: block; /* Show the edit icon on hover */
+  }
+  
+  input[type="file"] {
+      margin-top: 10px;
+  }
+  
+  h1 {
+      font-size: 24px;
+      color: #333;
+  }
+  
+  .btn-field {
+      margin-top: 20px;
+  }
+  
+  .btn-field button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  }
+  
+  .btn-field button:hover {
+      background-color: #0056b3;
+  }
+  
+  #setting-content h3{
+    color: black;
+    text-align: center;
+    background-color: transparent;
+  }
+
+
+
+/* exam content css*/
+
+
+.subject-box {
+  background-color: lightcyan;
+  padding: 10px;
+  margin: 40px;
+  margin-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 210px;
+  text-align: center;
+  display: inline-block;
+  position: relative; /* Required for pseudo-element positioning */
+}
+
+.subject-box::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+  #ff0066, 
+  #ffcc00, 
+  #00ccff, 
+  #ff3399, 
+  #ff6600, 
+  #66ff00, 
+  #00ffcc, 
+  #0066ff, 
+  #9900ff, 
+  #ff00ff, 
+  #ff9900, 
+  #ff6600, 
+  #00ccff, 
+  #cc00ff, 
+  #ff007f, 
+  #ff7f00, 
+  #7fff00, 
+  #00ff7f, 
+  #007fff, 
+  #7f00ff, 
+  #ff00cc, 
+  #ffcc00, 
+  #ccff00, 
+  #00cc99, 
+  #3399ff, 
+  #ff9933, 
+  #ffcc66, 
+  #6699ff, 
+  #cc99ff);
+background-size: 400% 400%;
+  border-radius: 12px;
+  z-index: -1;
+  animation: gradient-border 5s ease infinite;
+  padding: 2px;
+}
+
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.subject-box h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.subject-box p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.subject-box button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: 3px solid #4CAF50; /* Initial border color */
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  animation: border-color-change 8s infinite; /* Apply the animation */
+}
+
+@keyframes border-color-change {
+  0% { border-color: rgb(76, 175, 80); /* Green */ }
+  6.66% { border-color: rgb(215, 23, 23); /* Red */ }
+  13.33% { border-color: rgb(23, 138, 215); /* Blue */ }
+  20% { border-color: rgb(23, 215, 102); /* Light Green */ }
+  26.66% { border-color: rgb(215, 184, 23); /* Yellow */ }
+  33.33% { border-color: rgb(150, 23, 215); /* Purple */ }
+  40% { border-color: rgb(215, 89, 23); /* Orange */ }
+  46.66% { border-color: rgb(89, 215, 23); /* Lime */ }
+  53.33% { border-color: rgb(215, 23, 140); /* Pink */ }
+  60% { border-color: rgb(23, 215, 190); /* Teal */ }
+  66.66% { border-color: rgb(105, 23, 215); /* Violet */ }
+  73.33% { border-color: rgb(0, 255, 255); /* Cyan */ }
+  80% { border-color: rgb(255, 69, 0); /* Red-Orange */ }
+  86.66% { border-color: rgb(0, 0, 128); /* Navy Blue */ }
+  93.33% { border-color: rgb(255, 20, 147); /* Deep Pink */ }
+  100% { border-color: rgb(76, 175, 80); /* Back to Green */ }
+}
+
+
+.subject-box button:hover {
+  background-color: blue;
+}
+
+#mcq-questions {
+  background-color: lightcyan;
+  margin: 20px auto;
+  margin-top: 50px;
+  padding: 30px;
+  width: 1000px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  display: none;
+  text-align: center;
+  position: relative; /* Required for pseudo-element positioning */
+}
+
+#mcq-questions::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+  #ff0066, 
+  #ffcc00, 
+  #00ccff, 
+  #ff3399, 
+  #ff6600, 
+  #66ff00, 
+  #00ffcc, 
+  #0066ff, 
+  #9900ff, 
+  #ff00ff, 
+  #ff9900, 
+  #ff6600, 
+  #00ccff, 
+  #cc00ff, 
+  #ff007f, 
+  #ff7f00, 
+  #7fff00, 
+  #00ff7f, 
+  #007fff, 
+  #7f00ff, 
+  #ff00cc, 
+  #ffcc00, 
+  #ccff00, 
+  #00cc99, 
+  #3399ff, 
+  #ff9933, 
+  #ffcc66, 
+  #6699ff, 
+  #cc99ff);
+background-size: 400% 400%;
+  border-radius: 15px;
+  z-index: -1;
+  animation: gradient-border 5s ease infinite;
+}
+
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#mcq-questions p{
+  align-items: center;
+  display: inline;
+  padding: 80px;
+}
+.mcq-question {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.mcq-question h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  padding: 8px 0;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+label:hover {
+  color: #4CAF50;
+}
+
+.navigation {
+  margin-top: 20px;
+}
+
+.navigation button {
+  padding: 8px 16px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: none;
+  background-color: lightskyblue;
+}
+
+.navigation button:hover {
+  background-color: #007BFF;
+  color: white;
+  transform: scale(1.1);
+}
+
+#submit-btn {
+  background-color: #FF6347;
+}
+
+#submit-btn:hover {
+  background-color: #FF4500;
+}
+
+.question-number {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 75px;
+  margin-right: 75px;
+  flex-wrap: wrap;
+}
+
+.question-number button {
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.question-number button:hover {
+  background-color: #4CAF50;
+  color: white;
+  transform: scale(1.2);
+}
+
+.active-question {
+  background-color: blue !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+#exam-timer {
+  font-size: 1.2rem;
+  color: #FF4500;
+  margin-top: 20px;
+}
+
+#question-number-nav button {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  color: black;
+}
+
+#question-number-nav button.active-question {
+  outline: 2px solid blue; 
+}
+
+#question-number-nav button.answered {
+  background-color: SpringGreen; 
+  color: white; 
+}
+
+#question-number-nav button.unanswered {
+  background-color: red; 
+  color: white;
+}
+
+.selected-option {
+  background-color: SpringGreen;
+  color: black;
+  border-radius: 10px;
+  width: 20%;
+}
+
+
+textarea {
+  width: 98%;
+  height: 40px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  font-size: 1rem;
+}
+
+.one-line-question {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.one-line-question h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/*
+.subject-box {
+  background-color: lightcyan;
+  border: 2px solid #ddd;
+  padding: 10px;
+  margin: 40px;
+  margin-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 210px;
+  text-align: center;
+  display: inline-block;
+  padding: auto;
+}
+
+.subject-box h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.subject-box p {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.subject-box button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.subject-box button:hover {
+  background-color: #45a049;
+}
+*/
+
+#theory-questions {
+  background-color: #fff;
+  margin: 20px auto;
+  margin-top: 50px;
+  padding: 30px;
+  width: 75%;
+  border-radius: 15px;
+  border: 2px solid lightskyblue;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: none;
+  text-align: center;
+}
+#theory-questions p{
+  align-items: center;
+  display: inline;
+  padding: 80px;
+}
+.theory-question {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.theory-question h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 98%;
+  height: 100px;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  font-size: 1rem;
+}
+
+.navigations {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.navigations button {
+  padding: 8px 16px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: lightskyblue;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: none;
+}
+
+.navigations button:hover {
+  background-color: #007BFF;
+  color: white;
+  transform: scale(1.1);
+}
+
+#submit-theory-btn {
+  background-color: #FF6347;
+}
+
+#submit-theory-btn:hover {
+  background-color: #FF4500;
+}
+
+.question-number {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-left: 75px;
+  margin-right: 75px;
+  flex-wrap: wrap;
+}
+
+.question-number button {
+  margin: 5px;
+  padding: 8px 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ddd;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.question-number button:hover {
+  background-color: #4CAF50;
+  color: white;
+  transform: scale(1.2);
+}
+
+.active-question {
+  background-color: #4CAF50 !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+#exam-timer {
+  font-size: 1.2rem;
+  color: #FF4500;
+  margin-top: 20px;
+}
+.question-title {
+  text-align: left; 
+  margin: 20px 0;  
+  font-size: 15px;  
+  font-weight: bold;  
+}
+
+.theory-question {
+  margin: 10px 0;  
+}
+
+.save-btn {
+  margin-top: 10px;  
+  padding: 5px 10px;  
+  font-size: 14px;  
+}
+
+.answer-section {
+  margin-left: 20px;  
+}

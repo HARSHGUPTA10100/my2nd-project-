@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    <style>
+        /* Hide the class input field by default */
+        /*#classField {
+            display: none;
+        }*/
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1 id="title">Student Login</h1>
+            <form action="/login" method="post" id="loginForm">
+                <div class="input-group">
+                    <div id="classField">
+                        <label for="class" id="classes">Class:</label>
+                        <select name="classe" id="clas" required>
+                            <option value="">--Select Class -- </option>
+                            <option value="tycs">TYCS</option>
+                            <option value="sycs">SYCS</option>
+                            <option value="fycs">FYCS</option>
+                            <option value="tyit">TYIT</option>
+                            <option value="syit">SYIT</option>
+                            <option value="fyit">FYIT</option>
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <!--<i class="fa-solid fa-envelope"></i> -->
+                        <label for="username" id="username"> UserId:</label>
+                        <input type="email" placeholder="Enter Your Registered Email" name="username" required  autocomplete="family-name">
+                    </div>
+                    <div class="input-field">
+                        <!--<i class="fa-solid fa-lock"></i>-->
+                        <label for="password" id="password"> Password:</label>
+                        <input type="password" placeholder="Enter Your Password" maxlength="15" name="password" required>
+                    </div>
+                    <!--<p>Lost Password <a href="set.html">Reset</a></p>--->
+                </div>
+                <div class="btn-field">
+                    <input type="submit" name="submit" value="Login">
+                </div>
+                <div class="sign">
+                    <!---<p>don't have an account <a href="signup.html">Register</a></p> --->
+                    <p>Login As Teacher Or HOD/Pricipal <a href="tecLogin.html">Click Here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,499 @@
+/* student.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+  }
+  .navbar {
+    height: auto;
+    width: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: black;
+    color: white;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+
+  
+  .admin {
+    font-size: 1.5rem;
+    color: red;
+  }
+  
+  nav {
+    background-color: #333;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  background-color: #0080ff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 10px;
+  margin-left: auto;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+nav ul li a.active{
+  background-color: #04f6c9;
+  color: red;
+}
+
+nav ul li a:hover {
+  background-color: #04f6c9;
+  color: red;
+}
+
+.tab-content {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+button {
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  border-radius: 15px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #04f6c9;
+  color: red;
+}
+
+
+.container{
+  height: 100%;
+  width: 100%;
+}
+#dashboard{
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+#dashboard h1{
+  margin-top: -20px;
+  margin-bottom: -5px;
+  text-align: center;
+  color: red;
+  align-items: center;
+  justify-content: center;
+}
+.main-info{
+  width: 97%;
+  height: 270px;
+  margin-left: 5px;
+}
+.total-exam {
+  width: 280px;
+  height: 250px;
+  display: inline-block;
+  position: absolute;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  line-height: 160px;
+}
+.total-exam h3{
+  text-align: center;
+  justify-content: center;
+  margin-top: -75px;
+  color: black;
+}
+.total-exam p{
+  text-align: center;
+  justify-content: center;
+  color: black;
+  margin-top: -7rem;
+}
+.total-exam a{
+  text-decoration: none;
+  display: flex;
+  margin-left: 69px;
+  margin-top: -3rem;
+}
+.total-exam a button{
+  display: fixed;
+  background-color: white;
+  color: black;
+}
+.total-exam a button:hover{
+  color: red;
+  background-color: #04f6c9;
+}
+
+.total-teacher {
+  width: 280px;
+  height: 250px;
+  display: inline-block;
+  position: absolute;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  margin-left: 385px;
+  text-align: center;
+  line-height: 160px;
+}
+.total-teacher h3{
+  text-align: center;
+  justify-content: center;
+  margin-top: -75px;
+  color: black;
+}
+.total-teacher p{
+  text-align: center;
+  justify-content: center;
+  color: black;
+  margin-top: -7rem;
+}
+.total-teacher a{
+  text-decoration: none;
+  display: flex;
+  margin-left: 69px;
+  margin-top: -3rem;
+}
+.total-teacher a button{
+  display: fixed;
+  background-color: white;
+  color: black;
+}
+.total-teacher a button:hover{
+  color: red;
+  background-color: #04f6c9;
+}
+
+.total-student {
+  width: 280px;
+  height: 250px;
+  display: inline-block;
+  position: absolute;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  margin-left: 755px;
+  text-align: center;
+  line-height: 160px;
+}
+
+.total-student h3{
+  text-align: center;
+  justify-content: center;
+  margin-top: -75px;
+  color: black;
+}
+.total-student p{
+  text-align: center;
+  justify-content: center;
+  color: black;
+  margin-top: -7rem;
+}
+.total-student a{
+  text-decoration: none;
+  display: flex;
+  margin-left: 69px;
+  margin-top: -3rem;
+}
+.total-student a button{
+  display: fixed;
+  background-color: white;
+  color: black;
+}
+.total-student a button:hover{
+  color: red;
+  background-color: #04f6c9;
+}
+
+
+.total-hod {
+  width: 280px;
+  height: 250px;
+  display: inline-block;
+  position: absolute;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px;
+  margin-left: 1125px;
+  text-align: center;
+  line-height: 160px;
+}
+
+.total-hod h3{
+  text-align: center;
+  justify-content: center;
+  margin-top: -75px;
+  color: black;
+}
+.total-hod p{
+  text-align: center;
+  justify-content: center;
+  color: black;
+  margin-top: -7rem;
+}
+.total-hod a{
+  text-decoration: none;
+  display: flex;
+  margin-left: 55px;
+  margin-top: -3rem;
+}
+.total-hod a button{
+  display: fixed;
+  background-color: white;
+  color: black;
+}
+.total-hod a button:hover{
+  color: red;
+  background-color: #04f6c9;
+}
+
+/*.notice-board {
+  width: 93%;
+  height: auto;
+  min-height: 230px;
+  display: inline-block;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  margin-left: 20px;
+  margin-top: 330px;
+  text-align: center;
+  line-height: 160px;
+}
+.notice-board h3{
+  text-align: center;
+  justify-content: center;
+  margin-top: -75px;
+  color: black;
+}*/
+
+
+/* notice page css */
+
+#notice-board {
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin-top: 65px;
+  margin-left: 20px;
+  width: 94%;
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#notice-board h1 {
+  text-align: center;
+  color: black;
+}
+
+.notice {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+.notice:last-child {
+  border-bottom: none;
+}
+
+.notice h2 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.notice p {
+  color: #555;
+}
+#notice-board a{
+  text-decoration: none;
+}
+
+#addNoticeButton {
+  display: block;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#addNoticeButton:hover {
+  background-color: #0056b3;
+}
+
+/* notice page css */
+#users h1{
+  color: red;
+}
+.options {
+  display: none;
+}
+.options button {
+  display: inline-block;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.reg{
+  display: none;
+}
+
+.reg button{
+  display: inline-block;
+  margin-top: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+
+
+/* profile css........................*/
+.containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: transparent;
+  padding-top: -50px;
+  margin-top: -140px;
+}
+
+.profile-box {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 300px;
+  width: auto;
+  height: auto;
+  display: flex;
+  background-color: lightblue;
+  flex-direction: column;
+  align-items: center; /* Center elements horizontally */
+  justify-content: center; /* Center elements vertically */
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.profile-image {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid blue;
+    display: block;
+}
+
+.edit-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+}
+
+.profile-image:hover .edit-icon {
+    display: block; /* Show the edit icon on hover */
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.btn-field {
+    margin-top: 20px;
+}
+
+.btn-field button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-field button:hover {
+    background-color: white;
+    color: black;
+}
+#setting-content h3{
+  color: black;
+  text-align: center;
+  background-color: transparent;
+}

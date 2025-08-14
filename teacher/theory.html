@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External-Exam</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .question-container, .subject-container {
+            margin-bottom: 20px;
+            margin-left: 50px;
+            width: 90%;
+        }
+        button {
+            margin-left: 50px;
+            margin-top: 10px;
+            display: block;
+            height: 30px;
+            width: 150px;
+            color:blue;
+            border-radius: 10px;
+        }
+        button:hover {
+            color: white;
+            background-color: black;
+            border: 2px solid white;
+        }
+        #submit-button, #proceed-button {
+            display: none;
+        }
+        .add-question-btn {
+            display: none;
+        }
+        input {
+            width: 500px;
+            height: 20px;
+            border-radius: 5px;
+        }
+        .questions {
+            margin-bottom: 5px;
+            width: 900px;
+        }
+        #subject-form {
+    display: none;
+    margin-left: 33%;
+    margin-top: 10%;
+    background-color: lightblue;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+
+#subject-form::before {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, 
+    #ff0066, 
+    #ffcc00, 
+    #00ccff, 
+    #ff3399, 
+    #ff6600, 
+    #66ff00, 
+    #00ffcc, 
+    #0066ff, 
+    #9900ff, 
+    #ff00ff, 
+    #ff9900, 
+    #ff6600, 
+    #00ccff, 
+    #cc00ff, 
+    #ff007f, 
+    #ff7f00, 
+    #7fff00, 
+    #00ff7f, 
+    #007fff, 
+    #7f00ff, 
+    #ff00cc, 
+    #ffcc00, 
+    #ccff00, 
+    #00cc99, 
+    #3399ff, 
+    #ff9933, 
+    #ffcc66, 
+    #6699ff, 
+    #cc99ff);
+    background-size: 400% 400%;
+    border-radius: 10px;
+    z-index: -1;
+    animation: gradient-border 5s ease infinite;
+}
+
+@keyframes gradient-border {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#subject-form label {
+    font-weight: bold;
+    width: 35%;
+    margin-left: 5%;
+    margin-right: 2px;
+}
+
+#subject-form input {
+    padding: 10px;
+    border: 3px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 85%;
+    margin-right: 5%;
+    margin-top: 3px;
+    box-sizing: border-box;
+}
+
+#subject-form button {
+    width: 50%;
+    margin-left: 25%;
+    height: auto;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 15px;
+    border: 3px solid #ccc;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#subject-form button:hover {
+    background-color: #0056b3;
+}
+    </style>
+</head>
+<body>
+    <h1>External Exam</h1>
+
+    <!-- Buttons for CS -->
+    <button id="TYCS-btn" onclick="showSection('TYCS')">TYCS</button>
+    <button id="SYCS-btn" onclick="showSection('SYCS')">SYCS</button>
+    <button id="FYCS-btn" onclick="showSection('FYCS')">FYCS</button>
+
+    <!-- Buttons for IT -->
+    <button id="TYIT-btn" onclick="showSection('TYIT')">TYIT</button>
+    <button id="SYIT-btn" onclick="showSection('SYIT')">SYIT</button>
+    <button id="FYIT-btn" onclick="showSection('FYIT')">FYIT</button>
+
+    <!-- Subject form -->
+    <div id="subject-form">
+        <div class="form-group">
+            <label for="subject-name">Subject Name</label>
+            <input type="text" id="subject-name" placeholder="Subject Name">
+        </div>
+    
+        <div class="form-group">
+            <label for="class">Class</label>
+            <input type="text" id="class" readonly placeholder="Class">
+        </div>
+    
+        <div class="form-group">
+            <label for="total-marks">Total Marks</label>
+            <input type="tel" id="total-marks" placeholder="Total Marks" maxlength="3">
+        </div>
+    
+        <div class="form-group">
+            <label for="exam-date">Date</label>
+            <input type="date" id="exam-date">
+        </div>
+    
+        <div class="form-group">
+            <label for="start-time">Start Time</label>
+            <input type="time" id="start-time" onchange="setEndTime()">
+        </div>
+    
+        <div class="form-group">
+            <label for="end-time">End Time</label>
+            <input type="time" id="end-time" readonly>
+        </div>
+    
+        <button id="add-subject-btn" onclick="submitSubject()">Submit Subject</button>
+    </div>
+
+    <!-- Proceed Button -->
+    <button id="proceed-button" onclick="proceedToQuestions()">Proceed</button>
+
+    <!-- Sections for Questions -->
+    <div id="TYCS" class="section" style="display: none;">
+        <h2>TYCS Questions</h2>
+        <div id="TYCS-question-list"></div>
+        <button class="add-question-btn" id="add-tycs-question" onclick="showAllQuestions('TYCS')">Add TYCS Questions</button>
+    </div>
+
+    <div id="SYCS" class="section" style="display: none;">
+        <h2>SYCS Questions</h2>
+        <div id="SYCS-question-list"></div>
+        <button class="add-question-btn" id="add-sycs-question" onclick="showAllQuestions('SYCS')">Add SYCS Questions</button>
+    </div>
+
+    <div id="FYCS" class="section" style="display: none;">
+        <h2>FYCS Questions</h2>
+        <div id="FYCS-question-list"></div>
+        <button class="add-question-btn" id="add-fycs-question" onclick="showAllQuestions('FYCS')">Add FYCS Questions</button>
+    </div>
+
+    <div id="TYIT" class="section" style="display: none;">
+        <h2>TYIT Questions</h2>
+        <div id="TYIT-question-list"></div>
+        <button class="add-question-btn" id="add-tyit-question" onclick="showAllQuestions('TYIT')">Add TYIT Questions</button>
+    </div>
+
+    <div id="SYIT" class="section" style="display: none;">
+        <h2>SYIT Questions</h2>
+        <div id="SYIT-question-list"></div>
+        <button class="add-question-btn" id="add-syit-question" onclick="showAllQuestions('SYIT')">Add SYIT Questions</button>
+    </div>
+
+    <div id="FYIT" class="section" style="display: none;">
+        <h2>FYIT Questions</h2>
+        <div id="FYIT-question-list"></div>
+        <button class="add-question-btn" id="add-fyit-question" onclick="showAllQuestions('FYIT')">Add FYIT Questions</button>
+    </div>
+
+    <!-- Submit Questions button -->
+    <button id="submit-button" onclick="submitQuestions()">Submit Questions</button>
+
+    <script>
+        function setEndTime() {
+            const startTimeField = document.getElementById('start-time');
+            const endTimeField = document.getElementById('end-time');
+            const section = document.getElementById("subject-form").dataset.section;
+
+            const startTime = startTimeField.value;
+
+            if (startTime) {
+                const [hours, minutes] = startTime.split(':').map(Number);
+                const startDateTime = new Date();
+                startDateTime.setHours(hours, minutes, 0, 0);
+
+                let duration;
+                if (['TYCS', 'SYCS', 'FYCS'].includes(section)) {
+                    duration = 3 * 60 * 60 * 1000; // 50 minutes
+                } else {
+                    duration = 3 * 60 * 60 * 1000; // 60 minutes
+                }
+
+                const endDateTime = new Date(startDateTime.getTime() + duration);
+                const endHours = String(endDateTime.getHours()).padStart(2, '0');
+                const endMinutes = String(endDateTime.getMinutes()).padStart(2, '0');
+                endTimeField.value = `${endHours}:${endMinutes}`;
+            } else {
+                endTimeField.value = '';
+            }
+        }
+
+        let questions = [];
+
+        const questionConfig = {
+            TYCS: 24,
+            SYCS: 24,
+            FYCS: 24,
+            TYIT: 24,
+            SYIT: 24,
+            FYIT: 24
+        };
+
+        function showSection(section) {
+            document.getElementById('TYCS-btn').style.display = 'none';
+            document.getElementById('SYCS-btn').style.display = 'none';
+            document.getElementById('FYCS-btn').style.display = 'none';
+            document.getElementById('TYIT-btn').style.display = 'none';
+            document.getElementById('SYIT-btn').style.display = 'none';
+            document.getElementById('FYIT-btn').style.display = 'none';
+
+            document.getElementById("subject-form").style.display = 'block';
+            document.getElementById("subject-form").dataset.section = section;
+            // Automatically populate the class field based on the section
+            document.getElementById('class').value = section;
+        }
+
+        function submitSubject() {
+            document.getElementById("subject-form").style.display = 'none';
+            document.getElementById("proceed-button").style.display = 'block';
+            // submit subject function
+    const subjectName = document.getElementById("subject-name").value;
+    const Class = document.getElementById("class").value;
+    const totalMarks = document.getElementById("total-marks").value;
+    const examDate = document.getElementById("exam-date").value;
+    const startTime = document.getElementById("start-time").value;
+    const endTime = document.getElementById("end-time").value;
+
+    // Make a POST request to the backend to add subject details
+    fetch('http://localhost:4000/add-subject', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            subjectName,
+            Class,
+            totalMarks,
+            examDate,
+            startTime,
+            endTime
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(`Subject submitted: ${data.message}`);
+        // Proceed to questions after subject is added
+        document.getElementById("subject-form").style.display = 'none';
+        document.getElementById("proceed-button").style.display = 'block';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+    // submit subject function
+
+        }
+
+        function proceedToQuestions() {
+            document.getElementById("proceed-button").style.display = 'none';
+
+            const section = document.getElementById("subject-form").dataset.section;
+            document.getElementById(section).style.display = 'block';
+            document.getElementById(`add-${section.toLowerCase()}-question`).style.display = 'block';
+        }
+
+        function showAllQuestions(section) {
+            const totalQuestions = questionConfig[section];
+
+            document.getElementById(`add-${section.toLowerCase()}-question`).style.display = 'none';
+            
+            // Add subject code field before questions
+            const subjectCodeContainer = document.createElement("div");
+            subjectCodeContainer.className = "subject-container";
+            subjectCodeContainer.innerHTML = `
+                <label for="subject-code">Subject Code</label>
+                <input type="text" id="subject-code" readonly placeholder="subject code will automatically inserted ">
+            `;
+            document.getElementById(`${section}-question-list`).appendChild(subjectCodeContainer);
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                addTheoryQuestion(section, i);
+            }
+
+            document.getElementById("submit-button").style.display = 'block';   
+        }
+
+        function addTheoryQuestion(section, questionNumber) {
+            const questionContainer = document.createElement("div");
+            questionContainer.className = "question-container";
+            questionContainer.innerHTML = `
+                <label for="question-">Question ${questionNumber}</label>
+                <input type="text" class="questions" id="question-${section}-${questionNumber}" placeholder="Enter Question ${questionNumber}">
+            `;
+            document.getElementById(`${section}-question-list`).appendChild(questionContainer);
+        }
+        /*function fetchLatestSubjectCode() {
+            fetch('http://localhost:4000/get-latest-subject-code')
+            .then(response => response.json())
+            .then(data => {
+                if (data.subjectCode) {
+                    document.getElementById("subject-code").value = data.subjectCode;
+                } else {
+                    document.getElementById("subject-code").placeholder = "No subject code found";
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching subject code:', error);
+                document.getElementById("subject-code").placeholder = "Error fetching subject code";
+            });
+        }*/
+
+
+function submitQuestions() {
+    const section = document.getElementById("subject-form").dataset.section;
+    const questionsList = [];
+
+    const totalQuestions = questionConfig[section];
+    for (let i = 1; i <= totalQuestions; i++) {
+        const question = document.getElementById(`question-${section}-${i}`).value;
+        questionsList.push(question);
+    }
+
+    fetchLatestSubjectCode()
+        .then(latestSubjectCode => {
+            // Make a POST request to the backend
+            return fetch('http://localhost:4000/add-questions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ subjectCode: latestSubjectCode, questions: questionsList })
+            });
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(`Questions submitted: ${data.message}`);
+            resetForm();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+function fetchLatestSubjectCode() {
+    return fetch('http://localhost:4000/get-latest-subject-code')
+        .then(response => response.json())
+        .then(data => {
+            if (data.subjectCode) {
+                return data.subjectCode;
+            } else {
+                throw new Error("No subject code found");
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching subject code:', error);
+            throw error;
+        });
+}
+
+
+
+        function resetForm() {
+            // Hide all question sections
+            const sections = ['TYCS', 'SYCS', 'FYCS', 'TYIT', 'SYIT', 'FYIT'];
+            sections.forEach(section => {
+                document.getElementById(section).style.display = 'none';
+                document.getElementById(`${section}-question-list`).innerHTML = ''; // Clear question lists
+                document.getElementById(`add-${section.toLowerCase()}-question`).style.display = 'none';
+            });
+
+            // Hide buttons
+            document.getElementById("submit-button").style.display = 'none';
+            document.getElementById("proceed-button").style.display = 'none';
+
+            // Show class selection buttons
+            const buttons = document.querySelectorAll('button[id$="-btn"]');
+            buttons.forEach(button => {
+                button.style.display = 'block';
+            });
+
+            // Reset subject form
+            document.getElementById("subject-form").style.display = 'none';
+            document.getElementById("subject-name").value = '';
+            document.getElementById("total-marks").value = '';
+            document.getElementById("exam-date").value = '';
+            document.getElementById("start-time").value = '';
+            document.getElementById("end-time").value = '';
+        }
+
+        document.getElementById('exam-date').addEventListener('input', function() {
+    // Get today's date and format it to match the input field's value format
+    let today = new Date();
+    today.setDate(today.getDate() + 1); // Move the date to the next day (disabling today and past dates)
+    
+    // Format the date to 'YYYY-MM-DD'
+    let year = today.getFullYear();
+    let month = ('0' + (today.getMonth() + 1)).slice(-2); // Adding leading zero to month
+    let day = ('0' + today.getDate()).slice(-2); // Adding leading zero to day
+    let minDate = `${year}-${month}-${day}`;
+    
+    // Set the min attribute of the date input field
+    this.setAttribute('min', minDate);
+
+    // Check if the selected date is less than the minimum allowed date
+    if (this.value < minDate) {
+        alert("You cannot select today's date and previous date.");
+        this.value = ""; // Clear the invalid date
+    }
+});
+    </script>
+</body>
+</html>

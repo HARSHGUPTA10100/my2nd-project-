@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />    
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#FF0000"><path d="M687.26-273.33q25.58 0 43.5-18.5 17.91-18.5 17.91-44.09 0-25.59-17.91-43.5-17.92-17.91-43.5-17.91-25.59 0-44.09 17.91-18.5 17.91-18.5 43.5t18.5 44.09q18.5 18.5 44.09 18.5ZM686.33-150q32.67 0 59.34-14.17 26.66-14.16 44.66-39.5-24.66-13.66-50.3-20.66-25.65-7-53.34-7-27.69 0-53.69 7-26 7-50 20.66 18 25.34 44.33 39.5 26.34 14.17 59 14.17ZM480-80q-138.33-33-229.17-157.5Q160-362 160-520v-240.67l320-120 320 120V-505q-15.67-7.33-33-13.17-17.33-5.83-33.67-8.16V-714L480-808l-253.33 94v194q0 66.33 20.5 124.67Q267.67-337 300.5-290.5t74.17 79.83q41.33 33.34 83 50.67 7.66 18.67 21.66 38.33 14 19.67 27 32.67-6.33 3.33-13.16 5.17Q486.33-82 480-80Zm208.33 0q-79.33 0-135.5-56.5-56.16-56.5-56.16-134.83 0-79.96 56.16-136.31Q608.99-464 688.67-464q79 0 135.5 56.36 56.5 56.35 56.5 136.31 0 78.33-56.5 134.83Q767.67-80 688.33-80ZM480-484Z"/></svg>
+            <span class="admin">ADMIN</span>
+        </div>
+        <div class="nav-buttons">
+            <ul>
+                <li><a href="#dashboard-content" id="dashboard-btn" class="active">Dashboard</a></li>
+                <li><a href="#" id="Manage-User-btn">Manage-User</a></li>
+                <li><a href="#" id="Live-monitor-btn">Live-monitor</a></li>
+                <li><a href="#" id="Result-btn">Result</a></li>
+                <li><a href="#" id="Setting-btn">Setting</a></li>
+                <li><a href="http://127.0.0.1:8000/" target="_blank" id="Interview-btn">conduct exam</a></li> <!-- Interview link added -->
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <main class="main-content">
+            <div id="dashboard-content" class="tab-content">
+                <section id="dashboard">
+                    <h1>Dashboard</h1>
+                    <div class="main-info">
+                        <div class="total-exam">
+                            <h3>EXAMS</h3>
+                            <p>Total exam: <span>0</span></p>
+                            <p>Upcoming Exam: <span>0</span></p>
+                            <a href="#user-content"><button>View All Exams</button></a>
+                        </div>
+                        <div class="total-teacher">
+                            <h3>TEACHER</h3>
+                            <p>Total Teacher: <span>0</span></p>
+                            <p>Department: <span>2</span></p>
+                            <a href="#" id="viewTeachersBtn"><button>View Teachers</button></a>
+                        </div>
+                        <div class="total-student">
+                            <h3>Student</h3>
+                            <p>Total Student: <span>0</span></p>
+                            <p>Department: <span>2</span></p>
+                            <a href="#"><button>View Student</button></a>
+                        </div>
+                        <div class="total-hod">
+                            <h3>HOD & PRINCIPAL</h3>
+                            <p>Total HOD/Principal: <span>0</span></p>
+                            <p>Department: <span>2</span></p>
+                            <a href="#"><button>View Hod & Principal</button></a>
+                        </div>
+                    </div>
+                    <div class="notice-board">
+                        <div id="notice-board">
+                            <h1>Notice Board</h1>
+                            <div id="notices-container">
+                                <!-- Notices will be appended here dynamically -->
+                            </div>
+                            <a href="notice.html"><button id="addNoticeButton">Add New Notice</button></a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div id="user-content" class="tab-content">
+                <section id="users">
+                    <h1>User Management</h1>
+                    <div class="container">
+                        <button id="add-btn">Add User</button>
+                        <div id="reg" class="reg">
+                            <a href="studReg.html"><button>Add Student</button></a>
+                            <a href="tecReg.html"><button>Add Teacher & HOD</button></a>
+                        </div>
+                        <button id="view-btn">View User</button>
+                        <div id="options" class="options">
+                            <div class="button-container">
+                                <button class="button" onclick="getStaff('fycs')">FYCS</button>
+                                <button class="button" onclick="getStaff('SYCS')">SYCS</button>
+                                <button class="button" onclick="getStaff('TYCS')">TYCS</button>
+                                <button class="button" onclick="getStaff('FYIT')">FYIT</button>
+                                <button class="button" onclick="getStaff('SYIT')">SYIT</button>
+                                <button class="button" onclick="getStaff('TYIT')">TYIT</button>
+                                <button class="button" onclick="getStaff('Teacher')">Teacher</button>
+                                <button class="button" onclick="getStaff('HOD')">HOD & PRINCIPAL</button>
+                            </div>
+                        </div>
+                        <table id="staff-table">
+                            <thead>
+                                <tr>
+                                    <th>SN NO.</th>
+                                    <th>NAME</th>
+                                    <th>ROLL_NO/ TEC/ HOD CODE</th>
+                                    <th>EMAIL</th>
+                                    <th>CONTACT</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="staff-data">
+                                <!-- Table rows will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="admin.js"></script>
+    <script>
+        function getStaff(department) {
+            fetch(`/staff/${department}`)
+                .then(response => response.json())
+                .then(data => {
+                    const staffData = document.getElementById('staff-data');
+                    staffData.innerHTML = '';
+                    data.forEach((staff, index) => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${index + 1}</td>
+                            <td>${staff.name}</td>
+                            <td>${staff.roll_no}</td>
+                            <td>${staff.email}</td>
+                            <td>${staff.contact}</td>
+                            <td><button onclick="removeStudent('${staff.roll_no}', '${department}')">Remove</button></td>
+                        `;
+                        staffData.appendChild(row);
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function removeStudent(roll_no, department) {
+            if (confirm(`Are you sure you want to remove the student with roll number ${roll_no}?`)) {
+                fetch(`/remove-student/${department}/${roll_no}`, { method: 'DELETE' })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to remove student');
+                        }
+                        getStaff(department);
+                    })
+                    .catch(error => console.error('Error removing student:', error));
+            }
+        }
+    </script>
+</body>
+</html>

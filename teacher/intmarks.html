@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Entry Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        form {
+    background: white; /* Initial background color */
+    padding: 20px;
+    border-radius: 8px;
+    border: 6px solid #4CAF50; /* Initial border color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+    animation: border-background-change 8s infinite; /* Apply the animation */
+}
+
+@keyframes border-background-change {
+    0% { 
+        border-color: rgb(76, 175, 80); /* Green */
+        background-color: rgba(76, 175, 80, 0.1); /* Light Green background */
+    }
+    6.66% { 
+        border-color: rgb(215, 23, 23); /* Red */
+        background-color: rgba(215, 23, 23, 0.1); /* Light Red background */
+    }
+    13.33% { 
+        border-color: rgb(23, 138, 215); /* Blue */
+        background-color: rgba(23, 138, 215, 0.1); /* Light Blue background */
+    }
+    20% { 
+        border-color: rgb(23, 215, 102); /* Light Green */
+        background-color: rgba(23, 215, 102, 0.1); /* Very Light Green background */
+    }
+    26.66% { 
+        border-color: rgb(215, 184, 23); /* Yellow */
+        background-color: rgba(215, 184, 23, 0.1); /* Light Yellow background */
+    }
+    33.33% { 
+        border-color: rgb(150, 23, 215); /* Purple */
+        background-color: rgba(150, 23, 215, 0.1); /* Light Purple background */
+    }
+    40% { 
+        border-color: rgb(215, 89, 23); /* Orange */
+        background-color: rgba(215, 89, 23, 0.1); /* Light Orange background */
+    }
+    46.66% { 
+        border-color: rgb(89, 215, 23); /* Lime */
+        background-color: rgba(89, 215, 23, 0.1); /* Light Lime background */
+    }
+    53.33% { 
+        border-color: rgb(215, 23, 140); /* Pink */
+        background-color: rgba(215, 23, 140, 0.1); /* Light Pink background */
+    }
+    60% { 
+        border-color: rgb(23, 215, 190); /* Teal */
+        background-color: rgba(23, 215, 190, 0.1); /* Light Teal background */
+    }
+    66.66% { 
+        border-color: rgb(105, 23, 215); /* Violet */
+        background-color: rgba(105, 23, 215, 0.1); /* Light Violet background */
+    }
+    73.33% { 
+        border-color: rgb(0, 255, 255); /* Cyan */
+        background-color: rgba(0, 255, 255, 0.1); /* Light Cyan background */
+    }
+    80% { 
+        border-color: rgb(255, 69, 0); /* Red-Orange */
+        background-color: rgba(255, 69, 0, 0.1); /* Light Red-Orange background */
+    }
+    86.66% { 
+        border-color: rgb(0, 0, 128); /* Navy Blue */
+        background-color: rgba(0, 0, 128, 0.1); /* Light Navy Blue background */
+    }
+    93.33% { 
+        border-color: rgb(255, 20, 147); /* Deep Pink */
+        background-color: rgba(255, 20, 147, 0.1); /* Light Deep Pink background */
+    }
+    100% { 
+        border-color: rgb(76, 175, 80); /* Back to Green */
+        background-color: rgba(76, 175, 80, 0.1); /* Light Green background */
+    }
+}
+
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: -2px;
+            margin-bottom: 10px; /* Add spacing below the header */
+        }
+
+        .form-group {
+            display: flex;
+            justify-content: flex-start; /* Align items to start */
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        label {
+            margin-right: 5px; /* Margin between label and input */
+            font-weight: bold;
+            width: 100px; /* Fixed width for labels */
+        }
+
+        input[type="tel"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-left: 10px; /* Added left margin of 10px */
+            flex: 1; /* Allow the input to grow */
+        }
+
+        button {
+            width: 40%;
+            margin-left: 30%;
+            padding: 5px;
+            background-color: #0561f7;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 5px; /* Spacing above the button */
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <form action="/updates-marks" method="POST">
+        <h2>Internal Marks Entry</h2>
+
+        <div class="form-group">
+            <label for="q1">subject_code</label>
+            <input type="tel" id="sub" placeholder="subject_code"  name="subject_code" required oninput="this.value = this.value.toUpperCase()">
+        </div>
+
+        <div class="form-group">
+            <label for="q1">Roll_no</label>
+            <input type="tel" id="roll" name="roll_no" placeholder="Student roll no" required oninput="this.value = this.value.toUpperCase()">
+        </div>
+        
+        <div class="form-group">
+            <label for="q1">Q1 marks</label>
+            <input type="tel" id="q1" placeholder="Enter marks for Q1" maxlength="1">
+        </div>
+        
+        <div class="form-group">
+            <label for="q2">Q2 marks</label>
+            <input type="tel" id="q2" placeholder="Enter marks for Q2" maxlength="1">
+        </div>
+        
+        <div class="form-group">
+            <label for="q3">Q3 marks</label>
+            <input type="tel" id="q3" placeholder="Enter marks for Q3" maxlength="1">
+        </div>
+        
+        <div class="form-group">
+            <label for="q4">Q4 marks</label>
+            <input type="tel" id="q4" placeholder="Enter marks for Q4" maxlength="1">
+        </div>
+
+        <div class="form-group">
+            <label for="q4">Q5 marks</label>
+            <input type="tel" id="q5" placeholder="Enter marks for Q5" maxlength="1">
+        </div>
+
+        <div class="form-group">
+            <label for="q4">Q6 marks</label>
+            <input type="tel" id="q6" placeholder="Enter marks for Q6" maxlength="1">
+        </div>
+
+        <div class="form-group">
+            <label for="q4">Q7 marks</label>
+            <input type="tel" id="q7" placeholder="Enter marks for Q7" maxlength="1">
+        </div>
+        
+        <div class="form-group">
+            <label for="q4">Q8 marks</label>
+            <input type="tel" id="q8" placeholder="Enter marks for Q8" maxlength="1">
+        </div>
+
+        <div class="form-group">
+            <label for="q4">Q9 marks</label>
+            <input type="tel" id="q9" placeholder="Enter marks for Q9" maxlength="1">
+        </div>
+
+        <div class="form-group">
+            <label for="q4">Q10 marks</label>
+            <input type="tel" id="q10" placeholder="Enter marks for Q10" maxlength="1">
+        </div>
+
+        <div class="form-group">
+            <label for="total">Total marks</label>
+            <input type="tel" id="total" placeholder="Total marks" name="int_marks" required readonly>
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        // Get the input fields for Q1, Q2, Q3, Q4, and Total
+        const q1Input = document.getElementById('q1');
+        const q2Input = document.getElementById('q2');
+        const q3Input = document.getElementById('q3');
+        const q4Input = document.getElementById('q4');
+        const q5Input = document.getElementById('q5');
+        const q6Input = document.getElementById('q6');
+        const q7Input = document.getElementById('q7');
+        const q8Input = document.getElementById('q8');
+        const q9Input = document.getElementById('q9');
+        const q10Input = document.getElementById('q10');
+        const totalInput = document.getElementById('total');
+
+        // Function to calculate the total marks
+        function calculateTotal() {
+            // Parse the values from the inputs, use 0 if the input is empty or invalid
+            const q1 = parseFloat(q1Input.value) || 0;
+            const q2 = parseFloat(q2Input.value) || 0;
+            const q3 = parseFloat(q3Input.value) || 0;
+            const q4 = parseFloat(q4Input.value) || 0;
+            const q5 = parseFloat(q5Input.value) || 0;
+            const q6 = parseFloat(q6Input.value) || 0;
+            const q7 = parseFloat(q7Input.value) || 0;
+            const q8 = parseFloat(q8Input.value) || 0;
+            const q9 = parseFloat(q9Input.value) || 0;
+            const q10 = parseFloat(q10Input.value) || 0;
+
+            // Calculate the total marks
+            const total = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10;
+
+            // Display the total in the 'total' input field
+            totalInput.value = total;
+        }
+
+        // Add event listeners to recalculate the total whenever any of the inputs change
+        q1Input.addEventListener('input', calculateTotal);
+        q2Input.addEventListener('input', calculateTotal);
+        q3Input.addEventListener('input', calculateTotal);
+        q4Input.addEventListener('input', calculateTotal);
+        q5Input.addEventListener('input', calculateTotal);
+        q6Input.addEventListener('input', calculateTotal);
+        q7Input.addEventListener('input', calculateTotal);
+        q8Input.addEventListener('input', calculateTotal);
+        q9Input.addEventListener('input', calculateTotal);
+        q10Input.addEventListener('input', calculateTotal);
+    </script>
+</body>
+</html>

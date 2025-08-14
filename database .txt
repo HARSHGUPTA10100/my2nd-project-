@@ -1,0 +1,312 @@
+CREATE TABLE tycs (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL,roll_no varchar(10) UNIQUE, email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255) NOT NULL, contact varchar(15) NOT NULL UNIQUE);
+
+CREATE TABLE fycs (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL,roll_no varchar(10) UNIQUE, email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255) NOT NULL, contact varchar(15) NOT NULL UNIQUE);
+
+CREATE TABLE tyit (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL,roll_no varchar(10) UNIQUE, email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255) NOT NULL, contact varchar(15) NOT NULL UNIQUE);
+
+CREATE TABLE syit (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL,roll_no varchar(10) UNIQUE, email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255) NOT NULL, contact varchar(15) NOT NULL UNIQUE);
+
+CREATE TABLE fyit (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL,roll_no varchar(10) UNIQUE, email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255) NOT NULL, contact varchar(15) NOT NULL UNIQUE);
+
+CREATE TABLE sycs (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255) NOT NULL,roll_no varchar(10) UNIQUE, email VARCHAR(255) NOT NULL UNIQUE, password VARCHAR(255) NOT NULL, contact varchar(15) NOT NULL UNIQUE);
+
+
+
+CREATE TABLE subjects (id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,subject_code VARCHAR(8) UNIQUE,subject_name VARCHAR(100),class VARCHAR(100),total_marks INT,exam_date DATE,start_time TIME,end_time TIME);
+
+
+
+CREATE TABLE theory_questions (id INT AUTO_INCREMENT PRIMARY KEY, subject_code VARCHAR(8), question TEXT,FOREIGN KEY (subject_code) REFERENCES subjects(subject_code));
+
+
+CREATE TABLE mcq_subjects (id INT AUTO_INCREMENT PRIMARY KEY, subject_code VARCHAR(5) UNIQUE, subject_name VARCHAR(100),class varchar(100), total_marks INT, exam_date DATE, start_time TIME, end_time TIME);
+
+
+CREATE TABLE mcq_questions (id INT AUTO_INCREMENT PRIMARY KEY, subject_code VARCHAR(5) NOT NULL, question TEXT NOT NULL, option1 VARCHAR(255) NOT NULL, option2 VARCHAR(255) NOT NULL, option3 VARCHAR(255) NOT NULL, option4 VARCHAR(255) NOT NULL, correct_answer CHAR(1) NOT NULL,FOREIGN KEY (subject_code) REFERENCES mcq_subjects(subject_code));
+
+CREATE TABLE one_line_questions (id INT AUTO_INCREMENT PRIMARY KEY, subject_code VARCHAR(5) NOT NULL, question TEXT NOT NULL,FOREIGN KEY (subject_code) REFERENCES mcq_subjects(subject_code));
+
+
+CREATE TABLE students (id INT AUTO_INCREMENT PRIMARY KEY,student_code VARCHAR(10),name VARCHAR(255),email VARCHAR(255), UNIQUE (student_code));
+
+
+
+
+
+
+DROP TRIGGER IF EXISTS roll_n_triggers;
+
+
+
+
+
+
+
+
+DELIMITER //
+
+CREATE TRIGGER subject_code_trigger
+BEFORE INSERT ON subjects
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+
+    -- Find the maximum id currently in the subjects table
+    SELECT IFNULL(MAX(id), 0) INTO max_id FROM subjects;
+
+    -- Set the new subject_code by concatenating 'exam' with the next incremented id
+    SET NEW.subject_code = CONCAT('EXT', LPAD(max_id + 1, 2, '0'));
+END;
+
+//
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE TRIGGER subject_code_triggers
+BEFORE INSERT ON mcq_subjects
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+
+    -- Find the maximum id currently in the subjects table
+    SELECT IFNULL(MAX(id), 0) INTO max_id FROM subjects;
+
+    -- Set the new subject_code by concatenating 'exam' with the next incremented id
+    SET NEW.subject_code = CONCAT('INT', LPAD(max_id + 1, 2, '0'));
+END;
+
+//
+DELIMITER ;
+
+
+
+DELIMITER //
+
+CREATE TRIGGER roll_no_trigger
+BEFORE INSERT ON tycs
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+
+    -- Get the maximum id from the tycs table
+    SELECT IFNULL(MAX(id), 0) INTO max_id FROM tycs;
+
+    -- Set the new roll_no in the required format
+    SET NEW.roll_no = CONCAT('TYCS', LPAD(max_id + 1, 2, '0'));
+END;
+//
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+
+CREATE TRIGGER roll_no_trigger_sycs
+BEFORE INSERT ON sycs
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+
+    -- Get the maximum id from the sycs table
+    SELECT IFNULL(MAX(id), 0) INTO max_id FROM sycs;
+
+    -- Set the new roll_no in the required format
+    SET NEW.roll_no = CONCAT('SYCS', LPAD(max_id + 1, 2, '0'));
+END;
+//
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+
+CREATE TRIGGER roll_no_trigger_fycs
+BEFORE INSERT ON fycs
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+
+    -- Get the maximum id from the fycs table
+    SELECT IFNULL(MAX(id), 0) INTO max_id FROM fycs;
+
+    -- Set the new roll_no in the required format
+    SET NEW.roll_no = CONCAT('FYCS', LPAD(max_id + 1, 2, '0'));
+END;
+//
+
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+DELIMITER //
+
+CREATE TRIGGER roll_no_trigger_fyit
+BEFORE INSERT ON fyit
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+
+    -- Get the maximum id from the fyit table
+    SELECT IFNULL(MAX(id), 0) INTO max_id FROM fyit;
+
+    -- Set the new roll_no in the required format
+    SET NEW.roll_no = CONCAT('FYIT', LPAD(max_id + 1, 2, '0'));
+END;
+//
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+
+CREATE TRIGGER roll_no_trigger_syit
+BEFORE INSERT ON syit
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+
+    -- Get the maximum id from the syit table
+    SELECT IFNULL(MAX(id), 0) INTO max_id FROM syit;
+
+    -- Set the new roll_no in the required format
+    SET NEW.roll_no = CONCAT('SYIT', LPAD(max_id + 1, 2, '0'));
+END;
+//
+
+DELIMITER ;
+
+
+
+
+DELIMITER //
+
+CREATE TRIGGER roll_no_trigger_tyit
+BEFORE INSERT ON tyit
+FOR EACH ROW
+BEGIN
+    DECLARE max_id INT;
+
+    -- Get the maximum id from the tyit table
+    SELECT IFNULL(MAX(id), 0) INTO max_id FROM tyit;
+
+    -- Set the new roll_no in the required format
+    SET NEW.roll_no = CONCAT('TYIT', LPAD(max_id + 1, 2, '0'));
+END;
+//
+
+DELIMITER ;
+
+
+
+
+ drop table tycs,sycs,fycs,tyit,syit,fyit;
+
+
+
+
+
+
+
+
+
+
+
+CREATE TABLE scores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    roll_no VARCHAR(10),
+    subject_code VARCHAR(10),
+    score INT,
+    UNIQUE (roll_no, subject_code)  -- This enforces uniqueness for the combination of roll_no and subject_code
+);
+
+
+
+
+INSERT INTO scores (roll_no, subject_code, score) VALUES ('TYCS02', 'INT01', 0);  -- Valid
+INSERT INTO scores (roll_no, subject_code, score) VALUES ('TYCS02', 'INT02', 0);  -- Valid
+INSERT INTO scores (roll_no, subject_code, score) VALUES ('TYCS02', 'INT03', 0);  -- Valid
+INSERT INTO scores (roll_no, subject_code, score) VALUES ('TYCS02', 'INT03', 0); 
+
+
+
+
+
+CREATE TABLE exam_results (id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(100) NOT NULL, roll_no VARCHAR(20) NOT NULL, classname VARCHAR(20) NOT NULL, subjectname VARCHAR(100) NOT NULL, subject_code VARCHAR(20) NOT NULL,int_mcq_marks INT NOT NULL, int_th_marks INT NOT NULL, ext_marks INT NOT NULL, total_marks INT NOT NULL, UNIQUE (roll_no, subject_code), grade varchar(15));
+
+
+DELIMITER $$
+
+CREATE TRIGGER update_total_marks_before_insert
+BEFORE INSERT ON exam_results
+FOR EACH ROW
+BEGIN
+    -- If any of the fields int_mcq_marks, int_th_marks, or ext_marks are NULL, set them to 0
+    IF NEW.int_mcq_marks IS NULL THEN
+        SET NEW.int_mcq_marks = 0;
+    END IF;
+
+    IF NEW.int_th_marks IS NULL THEN
+        SET NEW.int_th_marks = 0;
+    END IF;
+
+    IF NEW.ext_marks IS NULL THEN
+        SET NEW.ext_marks = 0;
+    END IF;
+
+    -- Calculate and update total_marks as the sum of the individual marks
+    SET NEW.total_marks = NEW.int_mcq_marks + NEW.int_th_marks + NEW.ext_marks;
+END$$
+
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+CREATE TRIGGER update_total_marks_before_update
+BEFORE UPDATE ON exam_results
+FOR EACH ROW
+BEGIN
+    -- If any of the fields int_mcq_marks, int_th_marks, or ext_marks are NULL, set them to 0
+    IF NEW.int_mcq_marks IS NULL THEN
+        SET NEW.int_mcq_marks = 0;
+    END IF;
+
+    IF NEW.int_th_marks IS NULL THEN
+        SET NEW.int_th_marks = 0;
+    END IF;
+
+    IF NEW.ext_marks IS NULL THEN
+        SET NEW.ext_marks = 0;
+    END IF;
+
+    -- Calculate and update total_marks as the sum of the individual marks
+    SET NEW.total_marks = NEW.int_mcq_marks + NEW.int_th_marks + NEW.ext_marks;
+END$$
+
+DELIMITER ;
+
+
+
+CREATE TABLE admin (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

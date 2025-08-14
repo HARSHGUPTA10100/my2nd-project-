@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="student.css">
+</head>
+<body>
+    <nav class="navbar" id="navmenu">
+        <div class="logo">
+            <i class="fa-duotone fa-solid fa-user-graduate" style=" color: lightgreen; font-size: 35px; margin-right: 5px;"></i>
+            <span class="admin">STUDENT</span>
+        </div>
+        <div class="nav-buttons">
+            <ul>
+                <li><a href="#" id="dashboard-btn" class="active">Dashboard</a></li>
+                <li><a href="#" id="exam-btn">Exam</a></li>
+                <li><a href="#" id="Result-btn">Result</a></li>
+                <li><a href="http://localhost:3000" id="interview-btn">Interview</a></li> <!-- 👈 LINK ADDED -->
+                <li><a href="#" id="Setting-btn">Setting</a></li>
+            </ul>
+        </div>  
+    </nav>
+
+    <!-- main content-->
+    <div class="container">
+        <main class="main-content">
+            <div id="dashboard-content" class="tab-content">
+                <section id="dashboard">
+                    <h1>Dashboard</h1>
+                    <div class="main-info">
+                        <div class="total-exam">
+                            <h3>Upcoming-Exam</h3>
+                            <p>Total Upcoming exam: <span>0</span></p>
+                            <p>Upcoming Exam Date: <span>0</span></p>
+                            <a href="#"><button >View All Exams</button></a>
+                        </div>
+                        <div class="total-teacher">
+                            <h3>Previous-Exam</h3>
+                            <p>Total Exam: <span>0</span></p>
+                            <p>Stream:<span></span></p>
+                            <a href=""><button>View Past Exam</button></a>
+                        </div>
+                    </div>
+                    <div class="notice-board"></div>
+                        <div id="notice-board">
+                            <h1>Notice Board</h1>
+                            <div id="notices-container">
+                                <!-- Notices will be appended here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div id="exam-content" class="tab-content">
+                <div id="subject-list"></div>
+
+                <div id="mcq-questions" class="mcq-box">
+                    <h2 id="subject-header"></h2>
+                    <h2 id="code-header"></h2>
+                    <h3 id="class-header"></h3>
+                    <p id="total-marks"></p>
+                    <p id="exam-date"></p>
+                    <p id="exam-timer">Time Left: <span id="timer"></span></p>
+                    <div id="mcq-list"></div>
+                    <div class="navigation">
+                        <button id="previous-question-btn">Previous</button>
+                        <button id="next-question-btn">Next</button>
+                        <button id="submit-btn" style="display: none;">Submit</button>
+                    </div>
+                    <div id="question-number-nav" class="question-number"></div>
+                </div>
+
+                <div id="theory-questions" class="theory-box">
+                    <h2 id="theory-subject-header"></h2>
+                    <h3 id="theory-class-header"></h3>
+                    <p id="theory-total-marks"></p>
+                    <p id="theory-exam-date"></p>
+                    <p id="exam-timer">Time Left: <span id="timers"></span></p>
+                    <div id="theory-list"></div>
+                    <div class="navigations">
+                        <button id="previous-theory-btn">Previous</button>
+                        <button id="next-theory-btn">Next</button>
+                        <button id="submit-theory-btn" style="display: none;">Submit</button>
+                    </div>
+                    <div id="theory-question-number-nav" class="question-number"></div>
+                </div>
+            </div>
+
+            <div id="result-content" class="tab-content"></div>
+
+            <!-- 👇 INTERVIEW SECTION (still here if needed) -->
+            <div id="interview-content" class="tab-content">
+                <h1>Interview Section</h1>
+                <p>Details about mock interviews, scheduled interviews, or company interactions can go here.</p>
+            </div>
+
+            <div id="setting-content" class="tab-content">
+                <h3>Profile</h3>
+                <div class="containers">
+                    <div class="profile-box">
+                        <div class="profile-image">
+                            <img src="OIP.jpeg" alt="Profile Picture" id="profilePic">
+                            <span class="edit-icon" id="editIcon">&#9998;</span>
+                        </div>
+                        <h1>Welcome, <span id="userId"></span></h1>
+                        <p>Your Email: <span id="userEmail"></span></p>
+                        <p>Your roll_no: <span id="userroll"></span></p>
+                        <p>Your Number: <span id="userNumber"></span></p>
+                        <input type="file" id="uploadPhoto" accept="image/*" style="display: none;">
+                        <div class="btn-field">
+                            <button id="logoutBtn">Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="student.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>
