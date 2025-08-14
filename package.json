@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "my2nd-project",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "md makud",
+  "author": "Harsh Gupta",
   "license": "ISC",
-  "description": "",
+  "description": "A Node.js web application with role-based access control for educational management system",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "bcryptjs": "^3.0.2",
